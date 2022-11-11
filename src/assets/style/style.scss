@@ -50,17 +50,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.menu-icon {
-  display: none;
 
-}
-.logo {
-  color: #fff;
-  // font-weight: 700;
-}
-
-ul {
+  ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -94,6 +85,17 @@ ul {
     }
   }
 }
+}
+.menu-icon {
+  display: none;
+
+}
+.logo {
+  color: #fff;
+  // font-weight: 700;
+}
+
+
 
 .button {
   border-radius: 8px;
