@@ -3,6 +3,8 @@ import Vue from "vue";
 import AppLayout from "./layout/index.vue";
 import router from "./router";
 import store from "./store";
+import "./assets/style/base-style.scss";
+import "./assets/style/style.scss";
 
 Vue.config.productionTip = false;
 

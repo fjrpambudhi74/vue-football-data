@@ -1,0 +1,212 @@
+// color collection
+$blue-1: #14375e; //notif info
+$blue-2: #3e7dc0;
+$blue-2-dark: #396ca3;
+$blue-3: #11aae2;
+$blue-4: #52c8eb;
+$danger: #d32f2f;
+$warning: #ffa000;
+$success: #43a047;
+$disabled: #f3f3f3;
+$black-1: #27292d;
+$black-2: #505154;
+$black-3: #b3b3b4;
+$black-4: #dbdbdb;
+$grey-3-dark: #c2c2c3;
+$white-100: #f9f9f9;
+$white-80: rgba(249, 249, 249, 0.8);
+$white-60: rgba(249, 249, 249, 0.6);
+$white-40: rgba(249, 249, 249, 0.4);
+$dark-red: #691616;
+$soft-red: #f6d5d5;
+$dark-success: #153f17;
+$info: #b3d5ff;
+$txt-info: #00234d;
+$light: #dbdbdb;
+$light2: #F9F9F9;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+
+}
+
+#app {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+nav {
+  background: #37003c;
+  padding: 1.4rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu-icon {
+  display: none;
+
+}
+.logo {
+  color: #fff;
+  // font-weight: 700;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    float: left;
+    position: relative;
+    a {
+      display: block;
+      padding: 10px 20px 0 20px;
+      line-height: 50px;
+      color: #fff;
+      text-decoration: none;
+      &::before {
+        transition: 300ms;
+        height: 5px;
+        content: "";
+        position: absolute;
+        background-color: #ff2882;
+        width: 0%;
+        bottom: 0px;
+      }
+
+      &:hover::before{
+        width: 70%;
+      }
+      &:not(:only-child):after {
+        padding-left: 4px;
+        content: ' ▾';
+      }
+    }
+  }
+}
+
+.button {
+  border-radius: 8px;
+  border: 0px solid transparent;
+  font-size: 14px;
+  font-family: "AvenirBL", sans-serif;
+  text-align: center;
+  background-color: transparent;
+  padding: 16px 24px;
+  cursor: pointer;
+  transition: 0.1s all ease-in-out;
+  &-xs {
+    padding: 3px 10px;
+  }
+  &-sm {
+    padding: 8px 16px;
+    min-width: 85px;
+  }
+  &-md {
+    padding: 16px 8px;
+    height: fit-content;
+  }
+  &-md-2 {
+    padding: 16px 24px;
+    height: fit-content;
+  }
+  &-lg {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 150px;
+  }
+
+  &-black {
+    background-color: white;
+    color: $black-1;
+    border-color: $black-2;
+  }
+  &-grey {
+    background-color: $black-4;
+    color: $black-2;
+    border-color: $black-3;
+  }
+  &-primary {
+    background-color: $blue-2;
+    color: $white-100;
+    border-color: $blue-2;
+  }
+  &-secondary {
+    background-color: $white-100;
+    color: $blue-2;
+    border: 1px solid $blue-2;
+  }
+  &-success {
+    background-color: $success;
+    color: $white-100;
+    border-color: $success;
+  }
+  &-danger {
+    background-color: $danger;
+    color: $white-100;
+    border-color: $danger;
+  }
+  &-warning {
+    background-color: $warning;
+    color: $white-100;
+    border-color: $warning;
+  }
+  &:disabled {
+    background-color: #f3f3f3;
+    color: $black-3;
+    cursor: not-allowed;
+  }
+  &-line {
+    border: 1px solid $black-3;
+    background-color: $white-100;
+
+  }
+  &-line-primary {
+    border: 1px solid $blue-2;
+  }
+
+  span {
+    margin-left: 11px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  nav {
+    flex-direction: column;
+  }
+  .logo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-icon {
+    display: block;
+    font-size: 1.6rem;
+  }
+
+  ul {
+    display: none;
+    flex-direction: column;
+    padding-top: 1rem;
+    width: 100%;
+  }
+  ul.open {
+    display: flex;
+  }
+  li {
+    padding: 0.6rem;
+    text-align: center;
+  }
+}
