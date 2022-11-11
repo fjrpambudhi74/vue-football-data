@@ -1,19 +1,23 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../pages/HomeView.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    name: "areas",
+    component: () => import("../pages/AreasView.vue"),
   },
   {
-    path: "/about",
-    name: "about",
-    component: () => import("../pages/AboutView.vue"),
+    path: "/competition",
+    name: "competition",
+    component: () => import("../pages/CompetitionView.vue"),
+  },
+  {
+    path: "/teams",
+    name: "teams",
+    component: () => import("../pages/TeamsView.vue"),
   },
   {
     path: "/:pathMatch(.*)*",

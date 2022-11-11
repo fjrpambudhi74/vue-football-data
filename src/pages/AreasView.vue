@@ -6,7 +6,11 @@
     <h3 class="area-title">Select By Country</h3>
     <ul class="area-card">
       <li class="area-card-list" v-for="area in listAreas" :key="area.id">
-        {{ area.name }}
+        <router-link :to="{ name: 'competition', params: { id: area.id } }">
+          <span class="area-card-link">
+            {{ area.name }}
+          </span>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -60,5 +64,9 @@ ul {
     transform: scale(1.05);
     transition: 0.1s all ease-in-out;
   }
+}
+.area-card-link {
+  text-decoration: none !important;
+  color: black;
 }
 </style>
