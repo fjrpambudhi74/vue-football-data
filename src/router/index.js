@@ -15,9 +15,9 @@ const routes = [
     component: () => import("../pages/CompetitionView.vue"),
   },
   {
-    path: "/teams",
-    name: "teams",
-    component: () => import("../pages/TeamsView.vue"),
+    path: "/clubs",
+    name: "clubs",
+    component: () => import("../pages/ClubsView.vue"),
   },
   {
     path: "/:pathMatch(.*)*",

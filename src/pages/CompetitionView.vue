@@ -1,8 +1,5 @@
 <template>
   <div class="competition-container">
-    <!-- <div class="card" v-for="area in listAreas" :key="area.id">
-      {{ area.name }}
-    </div> -->
     <h3 class="competition-title">Select By Competition</h3>
     <ul class="competition-card">
       <li
@@ -11,7 +8,7 @@
         :key="competition.id"
       >
         <router-link
-          :to="{ name: 'teams', params: { competitionId: competition.id } }"
+          :to="{ name: 'clubs', params: { competitionId: competition.id } }"
         >
           <span class="competition-card-link">
             {{ competition.name }}
