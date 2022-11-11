@@ -6,7 +6,7 @@
     <h3 class="area-title">Select By Country</h3>
     <ul class="area-card">
       <li class="area-card-list" v-for="area in listAreas" :key="area.id">
-        <router-link :to="{ name: 'competition', params: { id: area.id } }">
+        <router-link :to="{ name: 'competition', params: { areaId: area.id } }">
           <span class="area-card-link">
             {{ area.name }}
           </span>
