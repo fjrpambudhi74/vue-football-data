@@ -2,12 +2,13 @@
   <div class="club-container">
     <h3 class="club-title">Select Clubs For Detail</h3>
     <ul class="club-card">
-      <li class="club-card-list" v-for="club in listClubs" :key="club.id">
-        <router-link
-          :to="{ name: 'club-profile', params: { clubId: club.id } }"
-        >
-          <div class="club-card-link">{{ club.name }}</div>
-        </router-link>
+      <li
+        class="club-card-list"
+        v-for="club in listClubs"
+        :key="club.id"
+        @click="goToPage(club.id)"
+      >
+        <span class="club-card-link">{{ club.name }}</span>
       </li>
     </ul>
   </div>
@@ -35,6 +36,9 @@ export default {
         console.log(error);
       }
     },
+    goToPage(id) {
+      this.$router.push({ name: "club-profile", params: { clubId: id } });
+    },
   },
 };
 </script>
@@ -59,6 +63,7 @@ ul {
   border-radius: 8px;
   margin: 8px auto;
   width: 500px;
+  cursor: pointer;
 
   &:hover {
     background-color: #dbdbdb;

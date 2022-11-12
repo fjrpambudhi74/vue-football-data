@@ -6,14 +6,11 @@
         class="competition-card-list"
         v-for="competition in listCompetitions"
         :key="competition.id"
+        @click="goToPage(competition.id)"
       >
-        <router-link
-          :to="{ name: 'clubs', params: { competitionId: competition.id } }"
-        >
-          <span class="competition-card-link">
-            {{ competition.name }}
-          </span>
-        </router-link>
+        <span class="competition-card-link">
+          {{ competition.name }}
+        </span>
       </li>
     </ul>
   </div>
@@ -43,6 +40,9 @@ export default {
         console.log(error);
       }
     },
+    goToPage(id) {
+      this.$router.push({ name: "clubs", params: { competitionId: id } });
+    },
   },
 };
 </script>
@@ -67,6 +67,7 @@ ul {
   border-radius: 8px;
   margin: 8px auto;
   width: 500px;
+  cursor: pointer;
 
   &:hover {
     background-color: #dbdbdb;

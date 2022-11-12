@@ -2,12 +2,15 @@
   <div class="area-container">
     <h3 class="area-title">Select By Country</h3>
     <ul class="area-card">
-      <li class="area-card-list" v-for="area in listAreas" :key="area.id">
-        <router-link :to="{ name: 'competition', params: { areaId: area.id } }">
-          <span class="area-card-link">
-            {{ area.name }}
-          </span>
-        </router-link>
+      <li
+        class="area-card-list"
+        v-for="area in listAreas"
+        :key="area.id"
+        @click="goToPage(area.id)"
+      >
+        <span class="area-card-link">
+          {{ area.name }}
+        </span>
       </li>
     </ul>
   </div>
@@ -34,6 +37,9 @@ export default {
         console.log(error);
       }
     },
+    goToPage(id) {
+      this.$router.push({ name: "competition", params: { areaId: id } });
+    },
   },
 };
 </script>
@@ -58,6 +64,7 @@ ul {
   border-radius: 8px;
   margin: 8px auto;
   width: 500px;
+  cursor: pointer;
 
   &:hover {
     background-color: #dbdbdb;
