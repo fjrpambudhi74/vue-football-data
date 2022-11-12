@@ -6,24 +6,33 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "areas",
-    component: () => import("../pages/AreasView.vue"),
+    name: "root",
+    component: () => import("../layout/LayoutPage.vue"),
+    redirect: { name: "areas" },
+    children: [
+      {
+        path: "/areas",
+        name: "areas",
+        component: () => import("../pages/AreasView.vue"),
+      },
+      {
+        path: "/competition",
+        name: "competition",
+        component: () => import("../pages/CompetitionView.vue"),
+      },
+      {
+        path: "/clubs",
+        name: "clubs",
+        component: () => import("../pages/ClubsView.vue"),
+      },
+      {
+        path: "/club-profile",
+        name: "club-profile",
+        component: () => import("../pages/ClubProfile.vue"),
+      },
+    ],
   },
-  {
-    path: "/competition",
-    name: "competition",
-    component: () => import("../pages/CompetitionView.vue"),
-  },
-  {
-    path: "/clubs",
-    name: "clubs",
-    component: () => import("../pages/ClubsView.vue"),
-  },
-  {
-    path: "/club-profile",
-    name: "club-profile",
-    component: () => import("../pages/ClubProfile.vue"),
-  },
+
   {
     path: "/:pathMatch(.*)*",
     name: "not-found",

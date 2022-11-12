@@ -1,5 +1,13 @@
 <template>
   <div class="profile">
+    <div class="profile-breadcrumb">
+      <span class="active" @click="goBack(-3)">Country</span> >
+      <span class="active" @click="goBack(-2)">Competition</span>
+      >
+      <span class="active" @click="$router.back()">Clubs</span>
+      >
+      <span>{{ detailClub.name }}</span>
+    </div>
     <div
       class="profile-hero"
       :class="[setBackgroundColor(detailClub.clubColors)]"
@@ -141,6 +149,9 @@ export default {
         return "profile-background-pattern-white";
       }
     },
+    goBack(n) {
+      this.$router.history(n);
+    },
   },
 };
 </script>
@@ -154,6 +165,7 @@ export default {
   padding: 64px 32px;
   overflow: hidden;
   color: #333;
+  margin-top: 32px;
 
   &-red {
     background-color: #eb0024 !important;
