@@ -1,9 +1,4 @@
-// color collection
-$blue-1: #14375e; //notif info
 $blue-2: #3e7dc0;
-$blue-2-dark: #396ca3;
-$blue-3: #11aae2;
-$blue-4: #52c8eb;
 $danger: #d32f2f;
 $warning: #ffa000;
 $success: #43a047;
@@ -12,18 +7,7 @@ $black-1: #27292d;
 $black-2: #505154;
 $black-3: #b3b3b4;
 $black-4: #dbdbdb;
-$grey-3-dark: #c2c2c3;
 $white-100: #f9f9f9;
-$white-80: rgba(249, 249, 249, 0.8);
-$white-60: rgba(249, 249, 249, 0.6);
-$white-40: rgba(249, 249, 249, 0.4);
-$dark-red: #691616;
-$soft-red: #f6d5d5;
-$dark-success: #153f17;
-$info: #b3d5ff;
-$txt-info: #00234d;
-$light: #dbdbdb;
-$light2: #F9F9F9;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
@@ -45,7 +29,7 @@ html, body {
 
 nav {
   background: #37003c;
-  padding: 1.4rem;
+  padding: 24px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -63,7 +47,7 @@ nav {
       display: block;
       padding: 10px 20px 0 20px;
       line-height: 50px;
-      color: #fff;
+      color: $white-100;
       text-decoration: none;
       &::before {
         transition: 300ms;
@@ -84,18 +68,12 @@ nav {
       }
     }
   }
-}
-}
-.menu-icon {
-  display: none;
-
-}
-.logo {
-  color: #fff;
-  // font-weight: 700;
+  }
 }
 
-
+.navbar-logo {
+  color: $white-100;
+}
 
 .button {
   border-radius: 8px;
@@ -164,7 +142,7 @@ nav {
     border-color: $warning;
   }
   &:disabled {
-    background-color: #f3f3f3;
+    background-color: $white-100;
     color: $black-3;
     cursor: not-allowed;
   }
@@ -182,33 +160,79 @@ nav {
   }
 }
 
+.card {
+  .card-container {
+  margin: 16px 64px;
+}
+
+.card-title {
+  margin-bottom: 32px;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+  align-items: center;
+}
+.card-list {
+  border: 1px solid $black-2;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 8px auto;
+  max-width: 500px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $black-4;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    transition: 0.1s all ease-in-out;
+  }
+}
+.card-link {
+  text-decoration: none !important;
+  color: $black-1;
+}
+}
+
+
+
 @media only screen and (max-width: 650px) {
   nav {
     flex-direction: column;
+      .navbar-logo {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu-icon {
+      display: block;
+      font-size: 25px;
+    }
+
+    ul {
+      display: none;
+      flex-direction: column;
+      padding-top: 16px;
+      width: 100%;
+    }
+    ul.open {
+      display: flex;
+    }
+    li {
+      padding: 10px;
+      text-align: center;
+    }
   }
+
+  .card-list {
+  max-width: 200px;
+  }
+
   .logo {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .menu-icon {
-    display: block;
-    font-size: 1.6rem;
-  }
-
-  ul {
-    display: none;
-    flex-direction: column;
-    padding-top: 1rem;
-    width: 100%;
-  }
-  ul.open {
-    display: flex;
-  }
-  li {
-    padding: 0.6rem;
     text-align: center;
   }
+
 }
