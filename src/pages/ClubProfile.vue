@@ -31,7 +31,7 @@
         <div class="profile-badge">
           <img :src="detailClub.crestUrl" alt="logo-club" />
         </div>
-        <div class="profile-details">
+        <div class="profile-details" :class="setFontColor ? 'text-black' : ''">
           <h1>{{ detailClub.name }}</h1>
           <div>
             <p>{{ detailClub.venue }}</p>
@@ -79,8 +79,19 @@ export default {
       isLoading: false,
     };
   },
-  mounted() {
-    this.getDetailClub();
+  async mounted() {
+    await this.getDetailClub();
+  },
+  computed: {
+    setFontColor() {
+      if (
+        this.detailClub.clubColors.includes("Black") ||
+        this.detailClub.clubColors.includes("White")
+      ) {
+        return true;
+      }
+      return false;
+    },
   },
   methods: {
     async getDetailClub() {
@@ -108,31 +119,31 @@ export default {
     setBackgroundColor(color = "White") {
       if (color.includes("Red")) {
         return "profile-hero-red";
-      } else if (color.includes("White")) {
-        return "profile-hero-white";
-      } else if (color.includes("Black")) {
-        return "profile-hero-black";
       } else if (color.includes("Blue")) {
         return "profile-hero-blue";
       } else if (color.includes("Sky Blue")) {
         return "profile-hero-skyblue";
       } else if (color.includes("Claret")) {
         return "profile-hero-burgundy";
+      } else if (color.includes("Black")) {
+        return "profile-hero-black";
+      } else if (color.includes("White")) {
+        return "profile-hero-white";
       }
     },
     setPatternColor(color = "White") {
       if (color.includes("Red")) {
         return "profile-background-pattern-red";
-      } else if (color.includes("White")) {
-        return "profile-background-pattern-white";
-      } else if (color.includes("Black")) {
-        return "profile-background-pattern-black";
       } else if (color.includes("Blue")) {
         return "profile-background-pattern-blue";
       } else if (color.includes("Sky Blue")) {
         return "profile-background-pattern-skyblue";
       } else if (color.includes("Claret")) {
         return "profile-background-pattern-burgundy";
+      } else if (color.includes("Black")) {
+        return "profile-background-pattern-black";
+      } else if (color.includes("White")) {
+        return "profile-background-pattern-white";
       }
     },
   },
@@ -142,7 +153,6 @@ export default {
 <style lang="scss" scoped>
 .profile-hero {
   position: relative;
-  margin-top: 32px;
   padding: 64px 32px;
   overflow: hidden;
   color: #333;
@@ -215,6 +225,11 @@ export default {
 .profile-details {
   margin-left: 64px;
   margin-top: 32px;
+  color: #fff;
+}
+
+.text-black {
+  color: #333 !important;
 }
 
 .player-index table {
