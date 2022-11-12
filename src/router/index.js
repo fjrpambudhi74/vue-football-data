@@ -20,6 +20,11 @@ const routes = [
     component: () => import("../pages/ClubsView.vue"),
   },
   {
+    path: "/club-profile",
+    name: "club-profile",
+    component: () => import("../pages/ClubProfile.vue"),
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "not-found",
     component: () => import("../pages/NotFound.vue"),
