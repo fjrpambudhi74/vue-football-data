@@ -1,8 +1,5 @@
 <template>
   <div class="area-container">
-    <!-- <div class="card" v-for="area in listAreas" :key="area.id">
-      {{ area.name }}
-    </div> -->
     <h3 class="area-title">Select By Country</h3>
     <ul class="area-card">
       <li class="area-card-list" v-for="area in listAreas" :key="area.id">
@@ -30,8 +27,12 @@ export default {
   },
   methods: {
     async getListAreas() {
-      const { data } = await HTTP.get("areas");
-      this.listAreas = data.areas;
+      try {
+        const { data } = await HTTP.get("areas");
+        this.listAreas = data.areas;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };

@@ -27,9 +27,13 @@ export default {
   },
   methods: {
     async getListClubs() {
-      const competitionId = this.$route.params.competitionId;
-      const { data } = await HTTP.get(`competitions/${competitionId}/teams`);
-      this.listClubs = data.teams;
+      try {
+        const competitionId = this.$route.params.competitionId;
+        const { data } = await HTTP.get(`competitions/${competitionId}/teams`);
+        this.listClubs = data.teams;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };

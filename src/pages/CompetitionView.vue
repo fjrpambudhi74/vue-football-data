@@ -33,12 +33,15 @@ export default {
   },
   methods: {
     async getListCompetitions() {
-      const areaId = this.$route.params.areaId;
-      const { data } = await HTTP.get(
-        `competitions?plan=TIER_ONE&areas=${areaId}`
-      );
-      this.listCompetitions = data.competitions;
-      console.log(this.listCompetitions);
+      try {
+        const areaId = this.$route.params.areaId;
+        const { data } = await HTTP.get(
+          `competitions?plan=TIER_ONE&areas=${areaId}`
+        );
+        this.listCompetitions = data.competitions;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };

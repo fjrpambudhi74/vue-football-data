@@ -1,8 +1,6 @@
 <template>
   <div class="profile">
-    <div v-if="isLoading">Loading ...</div>
     <div
-      v-else
       class="profile-hero"
       :class="[setBackgroundColor(detailClub.clubColors)]"
     >
@@ -76,7 +74,6 @@ export default {
     return {
       detailClub: [],
       clubSquad: [],
-      isLoading: false,
     };
   },
   async mounted() {
@@ -96,7 +93,6 @@ export default {
   methods: {
     async getDetailClub() {
       try {
-        this.isLoading = true;
         const clubId = this.$route.params.clubId;
         const { data } = await HTTP.get(`teams/${clubId}`);
         this.detailClub = data;
@@ -105,7 +101,6 @@ export default {
           item["position"] = item.position ?? item.role;
           item["dateOfBirth"] = this.calculateAge(item.dateOfBirth);
         });
-        this.isLoading = false;
       } catch (error) {
         console.log(error);
       }
@@ -151,6 +146,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.profile {
+  margin-bottom: 24px;
+}
 .profile-hero {
   position: relative;
   padding: 64px 32px;
