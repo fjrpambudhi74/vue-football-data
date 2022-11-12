@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-container">
-      <h3 class="card-title">Select By carrd</h3>
+      <h3 class="card-title">Select Club By Competition</h3>
       <ul class="card-wrapper">
         <li
           class="card-list"
