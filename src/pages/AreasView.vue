@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-container">
-      <h3 class="card-title">Select By Country</h3>
+      <h2 class="card-title">Select By Country</h2>
       <ul class="card-wrapper">
         <li
           class="card-list"
