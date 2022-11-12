@@ -59,7 +59,7 @@
             <td>{{ index + 1 }}</td>
             <td>{{ player.name }}</td>
             <td>{{ player.position }}</td>
-            <!-- <td>{{ player.dateOfBirth }}</td> -->
+            <td>{{ player.dateOfBirth }} Years</td>
             <td>{{ player.nationality }}</td>
           </tr>
         </tbody>
@@ -90,11 +90,20 @@ export default {
         const { data } = await HTTP.get(`teams/${clubId}`);
         this.detailClub = data;
         this.clubSquad = data.squad;
-        console.log(this.detailClub);
+        this.clubSquad.map((item) => {
+          item["position"] = item.position ?? item.role;
+          item["dateOfBirth"] = this.calculateAge(item.dateOfBirth);
+        });
         this.isLoading = false;
       } catch (error) {
         console.log(error);
       }
+    },
+    calculateAge(birthday) {
+      const ageDifMs = Date.now() - new Date(birthday).getTime();
+      const ageDate = new Date(ageDifMs);
+      const result = Math.abs(ageDate.getUTCFullYear() - 1970);
+      return result;
     },
     setBackgroundColor(color = "White") {
       if (color.includes("Red")) {
