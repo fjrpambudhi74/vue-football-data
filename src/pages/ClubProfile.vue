@@ -1,10 +1,15 @@
 <template>
   <div class="profile">
     <div v-if="isLoading">Loading ...</div>
-    <div v-else class="profile-hero">
+    <div
+      v-else
+      class="profile-hero"
+      :class="[setBackgroundColor(detailClub.clubColors)]"
+    >
       <div class="profile-background">
         <svg
           class="profile-background-pattern"
+          :class="[setPatternColor(detailClub.clubColors)]"
           viewBox="0 0 31 126"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
@@ -91,6 +96,36 @@ export default {
         console.log(error);
       }
     },
+    setBackgroundColor(color = "White") {
+      if (color.includes("Red")) {
+        return "profile-hero-red";
+      } else if (color.includes("White")) {
+        return "profile-hero-white";
+      } else if (color.includes("Black")) {
+        return "profile-hero-black";
+      } else if (color.includes("Blue")) {
+        return "profile-hero-blue";
+      } else if (color.includes("Sky Blue")) {
+        return "profile-hero-skyblue";
+      } else if (color.includes("Claret")) {
+        return "profile-hero-burgundy";
+      }
+    },
+    setPatternColor(color = "White") {
+      if (color.includes("Red")) {
+        return "profile-background-pattern-red";
+      } else if (color.includes("White")) {
+        return "profile-background-pattern-white";
+      } else if (color.includes("Black")) {
+        return "profile-background-pattern-black";
+      } else if (color.includes("Blue")) {
+        return "profile-background-pattern-blue";
+      } else if (color.includes("Sky Blue")) {
+        return "profile-background-pattern-skyblue";
+      } else if (color.includes("Claret")) {
+        return "profile-background-pattern-burgundy";
+      }
+    },
   },
 };
 </script>
@@ -102,6 +137,25 @@ export default {
   padding: 64px 32px;
   overflow: hidden;
   color: #333;
+
+  &-red {
+    background-color: #eb0024 !important;
+  }
+  &-white {
+    background-color: #f5f5f5 !important;
+  }
+  &-black {
+    background-color: #f5f5f5 !important;
+  }
+  &-blue {
+    background-color: #0a4595 !important;
+  }
+  &-skyblue {
+    background-color: #6caee0 !important;
+  }
+  &-burgundy {
+    background-color: #480025 !important;
+  }
 }
 .profile-background {
   background-image: url("../assets/images/stadium.jpg") !important;
@@ -123,6 +177,24 @@ export default {
   left: -1px;
   right: auto;
   top: 0;
+  &-red {
+    fill: #eb0024 !important;
+  }
+  &-white {
+    fill: #f5f5f5 !important;
+  }
+  &-black {
+    fill: #f5f5f5 !important;
+  }
+  &-blue {
+    fill: #0a4595 !important;
+  }
+  &-skyblue {
+    fill: #6caee0 !important;
+  }
+  &-burgundy {
+    fill: #480025 !important;
+  }
 }
 .profile-wrapper {
   display: flex;
