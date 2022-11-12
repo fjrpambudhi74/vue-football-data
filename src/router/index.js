@@ -7,7 +7,7 @@ const routes = [
   {
     path: "/",
     name: "root",
-    component: () => import("../layout/LayoutPage.vue"),
+    component: () => import("../views/LayoutPage.vue"),
     redirect: { name: "areas" },
     children: [
       {

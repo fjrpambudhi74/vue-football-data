@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import AppHeader from "../layout/NavbarHeader.vue";
+import AppHeader from "../components/NavbarHeader.vue";
 export default {
   name: "AppLayout",
   components: {
