@@ -114,10 +114,10 @@ export default {
     setBackgroundColor(color = "White") {
       if (color.includes("Red")) {
         return "profile-hero-red";
+      } else if (color.includes("Sky")) {
+        return "profile-hero-skyblue";
       } else if (color.includes("Blue")) {
         return "profile-hero-blue";
-      } else if (color.includes("Sky Blue")) {
-        return "profile-hero-skyblue";
       } else if (color.includes("Claret")) {
         return "profile-hero-burgundy";
       } else if (color.includes("Black")) {
@@ -129,10 +129,10 @@ export default {
     setPatternColor(color = "White") {
       if (color.includes("Red")) {
         return "profile-background-pattern-red";
+      } else if (color.includes("Sky")) {
+        return "profile-background-pattern-skyblue";
       } else if (color.includes("Blue")) {
         return "profile-background-pattern-blue";
-      } else if (color.includes("Sky Blue")) {
-        return "profile-background-pattern-skyblue";
       } else if (color.includes("Claret")) {
         return "profile-background-pattern-burgundy";
       } else if (color.includes("Black")) {
